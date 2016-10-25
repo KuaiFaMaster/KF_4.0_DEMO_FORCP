@@ -81,14 +81,17 @@ III.开启快发的日志请将debugMode设置为0,关闭设置为1
 ```java
 
 [static]
+#快发gameKey,自己在快发官网申请或联系快发商务获取
 HJR_GAMEKEY = c39697dd79df766cbf0834e1471cc1ae
 
 [dynamic]
+#日志开关 0:打开日志 1:关闭日志
 debugMode = 0
-PluginUser= Userkf
-PluginStatistic= Statistickf
-PluginIAP= Paykf
-channel = kf
+channel = KF
+PluginUser= UserKF
+PluginIAP= PayKF
+PluginStatistic= StatisticKF
+screen_oriention = 1 //0:横屏 1:竖屏
 
 ```
 
