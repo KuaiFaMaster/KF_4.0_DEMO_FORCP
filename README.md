@@ -38,6 +38,7 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
 ```
+如果需要额外权限，请在module `app`的`AndroidManifest.xml` 中添加
 
 ## 将快发提供的4.0sdk加入到你的项目中
 
@@ -60,7 +61,7 @@ dependencies {
 }
 ```
 
-如果需要额外权限，请在module `app`的`AndroidManifest.xml` 中添加
+
 
 ## Application配置
 
