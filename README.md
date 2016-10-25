@@ -36,6 +36,28 @@
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+```
+
+## 将快发提供的4.0sdk加入到你的项目中
+
+1. 请在项目目录下的build.gradle中加入sdk库的仓库位置maven { url "https://github.com/KuaiFaMaster/kfsdk/raw/master" }
+1. 在app的build.gradle文件的dependencies中加入依赖的库 compile 'com.kf.framework:kfsdk:latest.integration@aar'
+
+```xml
+
+allprojects {
+    repositories {
+        maven { url "https://github.com/KuaiFaMaster/kfsdk/raw/master" }
+        jcenter()
+    }
+}
+
+```
+```java
+dependencies {
+    compile 'com.kf.framework:kfsdk:latest.integration@aar'
+}
 ```
 
 如果需要额外权限，请在module `app`的`AndroidManifest.xml` 中添加
