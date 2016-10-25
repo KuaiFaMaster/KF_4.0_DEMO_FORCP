@@ -72,9 +72,9 @@ public void onConfigurationChanged(Configuration config) {
 
 ## 配置参数
 
-I.从快发提供的demo中拷贝assets目录下的developer.properties到你的游戏工程中assets目录或者在assets目录新建developer.properties文件并拷贝如下示例文件的内容到新建的文件中
-II.设置HJR_GAMEKEY的值为你从快发申请的值(联系商务)
-III.开启快发的日志请将debugMode设置为0,关闭设置为1
+1. 从快发提供的demo中拷贝assets目录下的developer.properties到你的游戏工程中assets目录或者在assets目录新建developer.properties文件并拷贝如下示例文件的内容到新建的文件中
+1. 设置HJR_GAMEKEY的值为你从快发申请的值(联系商务)
+1. 开启快发的日志请将debugMode设置为0,关闭设置为1
 
 
 ## developer.properties示例文件内容
