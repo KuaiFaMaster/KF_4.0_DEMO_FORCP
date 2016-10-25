@@ -6,7 +6,7 @@
 * 获取SDK接入Demo
 * 接入
 
-[Java Demo 工程地址](http://10.8.230.114/tianran/Game_Java_AS_Demo)
+[Java Demo 工程地址](https://github.com/KuaiFaMaster/KF_4.0_DEMO_FORCP)
 
 # 配置
 
