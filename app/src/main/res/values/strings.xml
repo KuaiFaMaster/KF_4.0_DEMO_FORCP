@@ -1,0 +1,4 @@
+<resources>
+    <!--TODO A1 修改AS_demo为渠道名,比如 AS_49-->
+    <string name="app_name">AS_demo</string>
+</resources>
