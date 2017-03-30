@@ -108,15 +108,6 @@
             android:text="----------------以下是统计SDK的接口--------------------------" />
 
         <Button
-            android:id="@+id/btn_main_record_login"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="10dp"
-            android:text="统计登陆" />
-
-        <Button
             android:id="@+id/btn_main_record_role_create"
             android:layout_width="match_parent"
             android:layout_height="45dp"
@@ -133,15 +124,6 @@
             android:layout_marginRight="30dp"
             android:layout_marginTop="10dp"
             android:text="统计角色升级" />
-
-        <Button
-            android:id="@+id/btn_main_record_server_info"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="10dp"
-            android:text="统计服务器信息" />
 
     </LinearLayout>
 

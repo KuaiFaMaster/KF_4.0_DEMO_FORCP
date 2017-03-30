@@ -33,10 +33,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
     Button btnMainExit;
     Button btnMainPay;
     Button btnMainGetOrderInfo;
-    Button btnMainRecordLogin;
     Button btnMainRecordRoleUp;
     Button btnMainRecordRoleCreate;
-    Button btnMainRecordServerInfo;
     TextView tvMainResult;
     TextView tvMainBaseInfo;
     String waitingTestStr = "just testing please wait...";
@@ -44,7 +42,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     String testServerID = "1";
     String testServerName = "s1";
     String testRoleID = "2051";
-    String testRoleName = "角色名称2051";
+    String testRoleName = "rolName";
     String testRoleLevel = "9527";
 
     @Override
@@ -67,10 +65,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         btnMainExit = bindButtonViewById(R.id.btn_main_exit);
         btnMainPay = bindButtonViewById(R.id.btn_main_pay);
         btnMainGetOrderInfo = bindButtonViewById(R.id.btn_main_get_order_info);
-        btnMainRecordLogin = bindButtonViewById(R.id.btn_main_record_login);
         btnMainRecordRoleUp = bindButtonViewById(R.id.btn_main_record_role_up);
         btnMainRecordRoleCreate = bindButtonViewById(R.id.btn_main_record_role_create);
-        btnMainRecordServerInfo = bindButtonViewById(R.id.btn_main_record_server_info);
         tvMainResult = (TextView) findViewById(R.id.tv_main_result);
         tvMainBaseInfo = (TextView) findViewById(R.id.tv_main_base_info);
     }
@@ -112,34 +108,20 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     case UserWrapper.ACTION_RET_LOGIN_SUCCESS:
                         HashMap<String, String> params = new HashMap<>();
                         //用户标识：只用添加用户ID即可
-                        params.put(Params.Statistic.KEY_ROLE_USERMARK, KFSDKUser.getInstance().getUserId() + "@Demo");
-                        // 用户类型：0为临时账户，1为注册用户，2为第三方用户
-                        params.put(Params.Statistic.KEY_ROLE_USERTYPE, "1");
-                        // 服务器ID
+                        params.put(Params.Statistic.KEY_ROLE_USERMARK, KFSDKUser.getInstance().userId + "@" + KFSDKUser.getInstance().getChannel());
+                        params.put(Params.Statistic.KEY_ROLE_ID, testRoleID);
                         params.put(Params.Statistic.KEY_ROLE_SERVER_ID, testServerID);
-                        // 账户id
-                        params.put(Params.Statistic.KEY_ROLE_USERID, testRoleID);
-                        // 账户account
-                        params.put(Params.Statistic.KEY_ROLE_USENICK, "account");
-                        KFSDKStatistic.getInstance().recordLogin(params);
-                        HashMap<String, String> srInfo = new HashMap<>();
-                        // cp标示
-                        srInfo.put(Params.Statistic.KEY_ROLE_USERMARK, KFSDKUser.getInstance().userId + "@" + KFSDKUser.getInstance().getChannel());
-                        // 角色id
-                        srInfo.put(Params.Statistic.KEY_ROLE_ID, testRoleID);
-                        // 角色等级
-                        srInfo.put(Params.Statistic.KEY_ROLE_LEVEL, testRoleLevel);
-                        // 服务器ID
-                        srInfo.put(Params.Statistic.KEY_ROLE_SERVER_ID, testServerID);
-                        // 角色昵称
-                        srInfo.put(Params.Statistic.KEY_ROLE_NAME, testRoleName);
+                        params.put(Params.Statistic.KEY_ROLE_NAME, testRoleName);
                         // 服务器名称
-                        srInfo.put(Params.Statistic.KEY_ROLE_SERVER_NAME, testServerName);
-                        // 角色所在帮派或工会名称
-                        srInfo.put(Params.Statistic.KEY_ROLE_PARTY_NAME, "角色所在帮派或工会名称");
-                        // VIP等级
-                        srInfo.put(Params.Statistic.KEY_ROLE_VIP_LEVEL, "VIP等级");
-                        KFSDKStatistic.getInstance().recordServerRoleInfo(srInfo);
+                        params.put(Params.Statistic.KEY_ROLE_SERVER_NAME, testServerName);
+                        // 角色等级
+                        params.put(Params.Statistic.KEY_ROLE_LEVEL, testRoleLevel);
+                        //角色等级
+                        params.put(Params.Statistic.KEY_ROLE_GRADE, testRoleLevel);
+
+                        KFSDKUser.getInstance().enterGame(params);
+
+
                         StringBuilder sb = new StringBuilder();
                         String openId = KFSDKUser.getInstance().getOpenId();
                         sb.append(checkCallBack2String("openId", openId));
@@ -171,6 +153,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
                         break;
                     case UserWrapper.ACTION_RET_CHANGE_ACCOUNT_SUCCESS:
+                        printAtTextViewResult(code, "KFSDKUser " + "切换成功");
+                        ToastBuilder.make(MainActivity.this,"切换账号成功",ToastBuilder.DEFAULT_TOAST);
                         break;
                     case UserWrapper.ACTION_RET_CHANGE_ACCOUNT_FAIL:
                         break;
@@ -243,7 +227,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public void onClick(View view) {
         HashMap<String, Object> paramsObj = new HashMap<>();
         HashMap<String, String> params = new HashMap<>();
-        tvMainResult.setText(waitingTestStr);
+        //tvMainResult.setText(waitingTestStr);
         switch (view.getId()) {
             case R.id.btn_main_login:
                 KFSDKUser.getInstance().login();
@@ -292,22 +276,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     ToastBuilder.make(getApplicationContext(), "获取订单号错误，请确认有订单后再尝试", ToastBuilder.DEFAULT_TOAST_SINGLE);
                 }
                 break;
-            case R.id.btn_main_record_login:
-                //test record login print at tvMainResult.setText();
-                //用户标识：只用添加用户ID即可
-                params.put(Params.Statistic.KEY_ROLE_USERMARK, KFSDKUser.getInstance().userId + "@" + KFSDKUser.getInstance().getChannel());
-                // 用户类型：0为临时账户，1为注册用户，2为第三方用户
-                params.put(Params.Statistic.KEY_ROLE_USERTYPE, "1");
-                // 服务器ID
-                params.put(Params.Statistic.KEY_ROLE_SERVER_ID, testServerID);
-                // 账户id
-                params.put(Params.Statistic.KEY_ROLE_USERID, testRoleID);
-                // 账户account
-                params.put(Params.Statistic.KEY_ROLE_USENICK, "account");
-                KFSDKStatistic.getInstance().recordLogin(params);
-                String rlRes = sendStatisticFinish + " 模拟登陆";
-                tvMainResult.setText(rlRes);
-                break;
             case R.id.btn_main_record_role_up:
                 //test record role up print at tvMainResult.setText();
                 params.put(Params.Statistic.KEY_ROLE_USERMARK, KFSDKUser.getInstance().userId + "@" + KFSDKUser.getInstance().getChannel());
@@ -347,28 +315,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 KFSDKStatistic.getInstance().recordRoleCreate(params);
                 String rcRes = sendStatisticFinish + " 模拟创建角色";
                 tvMainResult.setText(rcRes);
-                break;
-            case R.id.btn_main_record_server_info:
-                //test record server info print at tvMainResult.setText();
-                // cp标示
-                params.put(Params.Statistic.KEY_ROLE_USERMARK, KFSDKUser.getInstance().userId + "@" + KFSDKUser.getInstance().getChannel());
-                // 角色id
-                params.put(Params.Statistic.KEY_ROLE_ID, testRoleID);
-                // 角色等级
-                params.put(Params.Statistic.KEY_ROLE_LEVEL, testRoleLevel);
-                // 服务器ID
-                params.put(Params.Statistic.KEY_ROLE_SERVER_ID, testServerID);
-                // 角色昵称
-                params.put(Params.Statistic.KEY_ROLE_NAME, testRoleName);
-                // 服务器名称
-                params.put(Params.Statistic.KEY_ROLE_SERVER_NAME, testServerName);
-                // 角色所在帮派或工会名称
-                params.put(Params.Statistic.KEY_ROLE_PARTY_NAME, "角色所在帮派或工会名称");
-                // VIP等级
-                params.put(Params.Statistic.KEY_ROLE_VIP_LEVEL, "VIP等级");
-                KFSDKStatistic.getInstance().recordServerRoleInfo(params);
-                String ssTest = sendStatisticFinish + " 自定义统计信息, 根据渠道可能没回调";
-                tvMainResult.setText(ssTest);
                 break;
         }
     }

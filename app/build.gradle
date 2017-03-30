@@ -32,4 +32,6 @@ android {
 dependencies {
 //    compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.kf.framework:kfsdk:latest.integration@aar'
+    compile 'com.kf.framework:kf-utils:latest.integration@aar'
+    compile 'com.kf.framework:volleyplus:latest.integration@aar'
 }
