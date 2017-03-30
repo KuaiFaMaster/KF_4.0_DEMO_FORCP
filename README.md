@@ -308,46 +308,24 @@ KFSDKUser.getInstance().setListener(new KFSDKListener() {
 |KFSDKPay.getInstance().getOrderStatus();|int|支付状态 0为成功，其他为失败|
 |KFSDKPay.getInstance().getOrderStatusMessage();|String|支付消息|
 
-## 统计功能接入(必接的四个统计接口)
+## 统计功能接入(必接的三个统计接口)
 
-### 登录统计
+### 进入游戏统计
 
 ```java
-HashMap<String, String> params = new HashMap<String, String>();
+HashMap<String, String> params = new HashMap<>();
 //用户标识：只用添加用户ID即可
-params.put(Params.Statistic.KEY_ROLE_USERMARK, KFSDKUser.getInstance().getUserId() + "@"+KFSDKUser.getInstance().getChannel());
-// 用户类型：0为临时账户，1为注册用户，2为第三方用户
-params.put(Params.Statistic.KEY_ROLE_USERTYPE, "1");
-// 服务器ID
-params.put(Params.Statistic.KEY_ROLE_SERVER_ID, "13");
-// 账户id
-params.put(Params.Statistic.KEY_ROLE_USERID, "879876546");
-// 账户account
-params.put(Params.Statistic.KEY_ROLE_USENICK, "account");
-KFSDKStatistic.getInstance().recordLogin(params);
-```
-
-### 登录时记录角色信息
-```java
-        HashMap<String, String> params = new HashMap<String, String>();
-        // cp标示
-        params.put(Params.Statistic.KEY_ROLE_USERMARK, KFSDKUser.getInstance().userId + "@bdgame");
-        // 角色id
-        params.put(Params.Statistic.KEY_ROLE_ID, "1222");
-        // 角色等级
-        params.put(Params.Statistic.KEY_ROLE_LEVEL, "15");
-        // 服务器ID
-        params.put(Params.Statistic.KEY_ROLE_SERVER_ID, "2");
-        // 角色昵称
-        params.put(Params.Statistic.KEY_ROLE_NAME, "角色昵称");
-        // 服务器名称
-        params.put(Params.Statistic.KEY_ROLE_SERVER_NAME, "服务器名称");
-        // 角色所在帮派或工会名称
-        params.put(Params.Statistic.KEY_ROLE_PARTY_NAME, "角色所在帮派或工会名称");
-        // VIP等级
-        params.put(Params.Statistic.KEY_ROLE_VIP_LEVEL, "VIP等级");
-
-        KFSDKStatistic.getInstance().recordServerRoleInfo(params);
+params.put(Params.Statistic.KEY_ROLE_USERMARK, KFSDKUser.getInstance().userId + "@" + KFSDKUser.getInstance().getChannel());
+params.put(Params.Statistic.KEY_ROLE_ID, testRoleID);
+params.put(Params.Statistic.KEY_ROLE_SERVER_ID, testServerID);
+params.put(Params.Statistic.KEY_ROLE_NAME, testRoleName);
+// 服务器名称
+params.put(Params.Statistic.KEY_ROLE_SERVER_NAME, testServerName);
+// 角色等级
+params.put(Params.Statistic.KEY_ROLE_LEVEL, testRoleLevel);
+//角色等级
+params.put(Params.Statistic.KEY_ROLE_GRADE, testRoleLevel);
+KFSDKUser.getInstance().enterGame(params);
 ```
 
 ### 统计升级
