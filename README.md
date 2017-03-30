@@ -45,6 +45,8 @@
 
 1. 请在项目目录下的build.gradle中加入sdk库的仓库位置maven { url "https://github.com/KuaiFaMaster/kfsdk/raw/master" }
 1. 在app的build.gradle文件的dependencies中加入依赖的库 compile 'com.kf.framework:kfsdk:latest.integration@aar'
+                                               compile 'com.kf.framework:kf-utils:latest.integration@aar'
+                                               compile 'com.kf.framework:volleyplus:latest.integration@aar'
 
 ```xml
 
@@ -59,6 +61,8 @@ allprojects {
 ```java
 dependencies {
     compile 'com.kf.framework:kfsdk:latest.integration@aar'
+    compile 'com.kf.framework:kf-utils:latest.integration@aar'
+    compile 'com.kf.framework:volleyplus:latest.integration@aar'
 }
 ```
 
