@@ -301,6 +301,7 @@ KFSDKUser.getInstance().setListener(new KFSDKListener() {
 |:--|:--|:--|
 |KFSDKUser.getInstance().getOpenId();|String|OpenId|
 |KFSDKUser.getInstance().getUserId();|String|UserId|
+|KFSDKUser.getInstance().getCid();|String|cId|
 |KFSDKUser.getInstance().getToken();|String|Token|
 |KFSDKUser.getInstance().getUserName();|String|UserName|
 
