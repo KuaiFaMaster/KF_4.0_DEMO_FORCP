@@ -31,7 +31,8 @@ android {
 
 dependencies {
 //    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.kf.framework:kfsdk:latest.integration@aar'
+    compile 'com.kf.framework:kfsdk:1.5.0@aar'
     compile 'com.kf.framework:kf-utils:latest.integration@aar'
     compile 'com.kf.framework:volleyplus:latest.integration@aar'
+    compile 'net.gameworks.gameplatform:kuaifa-sdk-login-pay-KFZS:latest.integration@aar'
 }

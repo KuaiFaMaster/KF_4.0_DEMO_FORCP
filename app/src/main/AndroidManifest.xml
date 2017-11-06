@@ -24,6 +24,9 @@
 
 
         </activity>
+        <meta-data
+            android:name="KF_GAMEKEY"
+            android:value="11172d366524eec77a0599d90e40ae8d" />
 
         <meta-data
             android:name="HJR_CHANNEL"

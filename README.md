@@ -47,7 +47,6 @@
 1. 在app的build.gradle文件的dependencies中加入依赖的库 compile 'com.kf.framework:kfsdk:latest.integration@aar'
                                                compile 'com.kf.framework:kf-utils:latest.integration@aar'
                                                compile 'com.kf.framework:volleyplus:latest.integration@aar'
-
 ```xml
 
 allprojects {
@@ -80,7 +79,11 @@ dependencies {
 </application>
 ```
 
+
 如果有自定义Application请在自定义的Application继承KFApplication
+
+
+
 
 
 ```java
@@ -97,6 +100,9 @@ public void onConfigurationChanged(Configuration config) {
     super.onConfigurationChanged(config);
 }
 ```
+
+
+
 
 ## 配置参数
 
@@ -121,7 +127,23 @@ PluginIAP= PayKF
 PluginStatistic= StatisticKF
 screen_oriention = 1 //0:横屏 1:竖屏
 
+
 ```
+
+#添加官方渠道
+
+1  在build.gradle 添加快发官方SDK依赖库：  compile 'net.gameworks.gameplatform:kuaifa-sdk-login-pay-KFZS:latest.integration@aar'  
+
+2 在项目assets下的developer.properties中 添加PluginIsKF=0  其中0 代表开启官方SDK 1代表关闭
+
+3 在AndroidManifest.xml 下 添加 <meta-dataandroid:name="KF_GAMEKEY"android:value="xxxxxx" /> 其中 xxxxxx需要像快发官方申请KF_GAMEKEY值
+             
+            
+
+
+
+
+
 
 ## Activity生命周期函数
 
