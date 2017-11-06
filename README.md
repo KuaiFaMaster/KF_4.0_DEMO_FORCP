@@ -136,7 +136,7 @@ screen_oriention = 1 //0:横屏 1:竖屏
 
 2 在项目assets下的developer.properties中 添加PluginIsKF=0  其中0 代表开启官方SDK 1代表关闭
 
-3 在AndroidManifest.xml 下 添加 <meta-dataandroid:name="KF_GAMEKEY"android:value="xxxxxx" /> 其中 xxxxxx需要像快发官方申请KF_GAMEKEY值
+3 在AndroidManifest.xml 下 添加 <meta-dataandroid:name="KF_GAMEKEY"android:value="xxxxxx" /> 其中 xxxxxx需要向快发官方申请KF_GAMEKEY值
              
             
 
