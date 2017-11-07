@@ -30,7 +30,7 @@
 
         <meta-data
             android:name="HJR_CHANNEL"
-            android:value="\ 0103" />
+            android:value="def" />
 
     </application>
 

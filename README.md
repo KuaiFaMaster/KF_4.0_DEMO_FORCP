@@ -62,6 +62,8 @@ dependencies {
     compile 'com.kf.framework:kfsdk:latest.integration@aar'
     compile 'com.kf.framework:kf-utils:latest.integration@aar'
     compile 'com.kf.framework:volleyplus:latest.integration@aar'
+ 	compile 'net.gameworks.gameplatform:kuaifa-sdk-login-pay-KFZS:latest.integration@aar'  
+
 }
 ```
 
@@ -86,6 +88,8 @@ dependencies {
 
 
 
+
+
 ```java
 @Override
 public void onCreate() {
@@ -102,7 +106,18 @@ public void onConfigurationChanged(Configuration config) {
 ```
 
 
+##AndroidManifest.xml
+添加meta-data 文件
+   
 
+
+        <meta-data
+            android:name="HJR_CHANNEL"
+            android:value="def" />
+ 		<meta-data
+      		android:name="KF_GAMEKEY"
+       		android:value="xxxxxxx" />
+注：KF_GAMEKEY 的值 需要向快发官方申请参数 ，HJR_CHANNEL 值默认为def
 
 ## 配置参数
 
@@ -112,42 +127,32 @@ public void onConfigurationChanged(Configuration config) {
 
 
 ## developer.properties示例文件内容
-```java
+
+
 
 [static]
 #快发gameKey,自己在快发官网申请或联系快发商务获取
 HJR_GAMEKEY = c39697dd79df766cbf0834e1471cc1ae
-
 [dynamic]
-#日志开关 0:打开日志 1:关闭日志
-debugMode = 0
+
+debugMode = 0  //#日志开关 0:打开日志 1:关闭日志
+
 channel = KF
+
 PluginUser= UserKF
+
 PluginIAP= PayKF
-PluginStatistic= StatisticKF
+
+PluginStatistic= StatisticKF****
+
 screen_oriention = 1 //0:横屏 1:竖屏
 
-
-```
-
-#添加官方渠道
-
-1  在build.gradle 添加快发官方SDK依赖库：  compile 'net.gameworks.gameplatform:kuaifa-sdk-login-pay-KFZS:latest.integration@aar'  
-
-2 在项目assets下的developer.properties中 添加PluginIsKF=0  其中0 代表开启官方SDK 1代表关闭
-
-3 在AndroidManifest.xml 下 添加 <meta-dataandroid:name="KF_GAMEKEY"android:value="xxxxxx" /> 其中 xxxxxx需要向快发官方申请KF_GAMEKEY值
-             
-            
-
-
-
-
+PluginIsKF=0  //0 开启快发官方SDK  1 关闭开发官方SDK   测试支付时 可以设置为1 
 
 
 ## Activity生命周期函数
 
-```java
+```java****
     @Override
     protected void onResume() {
         SDKPluginWrapper.onResume();
