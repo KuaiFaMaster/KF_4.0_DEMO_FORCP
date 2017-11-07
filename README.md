@@ -113,11 +113,11 @@ public void onConfigurationChanged(Configuration config) {
 
         <meta-data
             android:name="HJR_CHANNEL"
-            android:value="def" />
+            android:value="\ 0103" />
  		<meta-data
       		android:name="KF_GAMEKEY"
        		android:value="xxxxxxx" />
-注：KF_GAMEKEY 的值 需要向快发官方申请参数 ，HJR_CHANNEL 值默认为def
+注：KF_GAMEKEY 的值 需要向快发官方申请参数 
 
 ## 配置参数
 
