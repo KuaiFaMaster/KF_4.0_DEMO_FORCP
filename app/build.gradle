@@ -27,14 +27,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-//    splits{
-//        abi{
-//            enable true
-//            reset()
-//            include 'armeabi', 'armeabi-v7a'
-//            universalApk true
-//        }
-//    }
+    splits{
+        abi{
+            enable true
+            reset()
+            include 'armeabi', 'armeabi-v7a'
+            universalApk true
+        }
+    }
 }
 
 
