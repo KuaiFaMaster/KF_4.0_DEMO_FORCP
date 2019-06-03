@@ -17,7 +17,7 @@
 * 编码 UTF-8
 * jdk 1.7 及以上
 * Android Studio 1.5.1 及以上
-* Gradle 2.8 及以上
+* Gradle 4.6 及以上
 
 ## 权限配置
 
@@ -53,16 +53,17 @@ allprojects {
     repositories {
         maven { url "https://github.com/KuaiFaMaster/kfsdk/raw/master" }
         jcenter()
+        google()
     }
 }
 
 ```
 ```java
 dependencies {
-    compile 'com.kf.framework:kfsdk:latest.integration@aar'
-    compile 'com.kf.framework:kf-utils:latest.integration@aar'
-    compile 'com.kf.framework:volleyplus:latest.integration@aar'
- 	compile 'net.gameworks.gameplatform:kuaifa-sdk-login-pay-KFZS:latest.integration@aar'  
+    implementation 'com.kf.framework:kfsdk:latest.integration@aar'
+    implementation 'com.kf.framework:kf-utils:latest.integration@aar'
+    implementation 'com.kf.framework:volleyplus:latest.integration@aar'
+    implementation 'net.gameworks.gameplatform:kuaifa-sdk-login-pay-KFZS:latest.integration@aar'
 
 }
 ```
@@ -147,7 +148,7 @@ PluginStatistic= StatisticKF****
 
 screen_oriention = 1 //0:横屏 1:竖屏
 
-PluginIsKF=0  //0 开启快发官方SDK  1 关闭开发官方SDK   测试支付时 可以设置为1 
+PluginIsKF=0  //0 开启快发官方SDK  1 关闭快发官方SDK   测试支付时 可以设置为1 
 
 
 ## Activity生命周期函数
