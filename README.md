@@ -132,7 +132,7 @@ HJR_GAMEKEY = c39697dd79df766cbf0834e1471cc1ae
 
 debugMode = 0  //#日志开关 0:打开日志 1:关闭日志
 
-channel = KF
+channel = matrix
 
 PluginUser= UserKF
 
