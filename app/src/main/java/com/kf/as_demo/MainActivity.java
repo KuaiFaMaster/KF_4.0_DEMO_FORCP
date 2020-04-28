@@ -23,6 +23,9 @@ import com.kf.framework.java.KFSDKUser;
 import com.kf.utils.KFLog;
 import com.kf.utils.ToastBuilder;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 
 public class MainActivity extends Activity implements View.OnClickListener {
@@ -35,6 +38,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
     Button btnMainGetOrderInfo;
     Button btnMainRecordRoleUp;
     Button btnMainRecordRoleCreate;
+    Button btnMainGetAuthInfo;
+    Button btnMainAuthRealname;
     TextView tvMainResult;
     TextView tvMainBaseInfo;
     String waitingTestStr = "just testing please wait...";
@@ -63,12 +68,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
         btnMainLogout = bindButtonViewById(R.id.btn_main_logout);
         btnMainSwitchAccount = bindButtonViewById(R.id.btn_main_switch_account);
         btnMainExit = bindButtonViewById(R.id.btn_main_exit);
+        btnMainGetAuthInfo = bindButtonViewById(R.id.btn_main_get_auth_info);
+        btnMainAuthRealname = bindButtonViewById(R.id.btn_main_auth_realname);
         btnMainPay = bindButtonViewById(R.id.btn_main_pay);
         btnMainGetOrderInfo = bindButtonViewById(R.id.btn_main_get_order_info);
         btnMainRecordRoleUp = bindButtonViewById(R.id.btn_main_record_role_up);
         btnMainRecordRoleCreate = bindButtonViewById(R.id.btn_main_record_role_create);
         tvMainResult = (TextView) findViewById(R.id.tv_main_result);
         tvMainBaseInfo = (TextView) findViewById(R.id.tv_main_base_info);
+
     }
 
     private Button bindButtonViewById(int id) {
@@ -158,6 +166,25 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         break;
                     case UserWrapper.ACTION_RET_CHANGE_ACCOUNT_FAIL:
                         break;
+
+                    case UserWrapper.ACTION_RET_AUTH_REALNAME_SUCCESS:
+                        try {
+                            JSONObject object = new JSONObject(msg);
+                            String status = object.getString("status");
+                            if ("0".equals(status)) {
+                                KFLog.d("未实名");
+                            } else if ("1".equals("status")) {
+                                KFLog.d("已实名，未成年");
+                            } else if ("2".equals("status")) {
+                                KFLog.d("已实名，已成年");
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        break;
+                    case UserWrapper.ACTION_RET_AUTH_REALNAME_FAIL:
+                        KFLog.d("实名认证失败");
+                        break;
                     default:
                         throw new KFAPIException("登陆回调异常 Check you setting of " +
                                 "KFSDKUser.getInstance().setListener code" +
@@ -244,6 +271,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
             case R.id.btn_main_exit:
                 //test exit print at tvMainResult.setText();
                 KFSDKUser.getInstance().exit();
+                break;
+            case R.id.btn_main_get_auth_info:
+                KFSDKUser.getInstance().getRealnameStatus();
+                break;
+            case R.id.btn_main_auth_realname:
+                KFSDKUser.getInstance().authRealName();
                 break;
             case R.id.btn_main_pay:
                 //test pay print at tvMainResult.setText();

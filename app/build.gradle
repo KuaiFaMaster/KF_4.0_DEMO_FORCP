@@ -37,9 +37,14 @@ android {
 }
 
 
+
 dependencies {
-    implementation 'com.kf.framework:kfsdk:latest.integration@aar'
-    implementation 'com.kf.framework:kf-utils:latest.integration@aar'
-    implementation 'com.kf.framework:volleyplus:latest.integration@aar'
-    implementation 'net.gameworks.gameplatform:kuaifa-sdk-login-pay-KFZS:latest.integration@aar'
+//    implementation 'com.kf.framework:kfsdk:latest.integration@aar'
+//    implementation 'com.kf.framework:kf-utils:latest.integration@aar'
+//    implementation 'com.kf.framework:volleyplus:latest.integration@aar'
+//    implementation 'net.gameworks.gameplatform:kuaifa-sdk-login-pay-KFZS:latest.integration@aar'
+    implementation(name: 'kfsdk-1.6.8', ext: 'aar')
+    implementation(name: 'kf-utils-1.4.6', ext: 'aar')
+    implementation(name: 'volleyplus-1.4.6', ext: 'aar')
+    implementation(name: 'kuaifa-sdk-login-pay-KFZS-1.5.7', ext: 'aar')
 }
