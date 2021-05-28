@@ -2,9 +2,11 @@ package com.kf.as_demo;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -57,6 +59,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
         initView();
         initKFSDK();
         refreshBaseInfo();
+        try {
+            Log.e("Snow", "onCreate: " + getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_SIGNATURES).signatures[0].toCharsString());
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+//        0b00000010
     }
 
     private void refreshBaseInfo() {
@@ -173,9 +181,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                             String status = object.getString("status");
                             if ("0".equals(status)) {
                                 KFLog.d("未实名");
-                            } else if ("1".equals("status")) {
+                            } else if ("1".equals(status)) {
                                 KFLog.d("已实名，未成年");
-                            } else if ("2".equals("status")) {
+                            } else if ("2".equals(status)) {
                                 KFLog.d("已实名，已成年");
                             }
                         } catch (JSONException e) {
@@ -280,7 +288,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.btn_main_pay:
                 //test pay print at tvMainResult.setText();
-//                paramsObj.put(Params.Pay.KEY_ORDER_NO, "");//订单号
+                paramsObj.put(Params.Pay.KEY_ORDER_NO, "1111");//订单号
                 paramsObj.put(Params.Pay.KEY_AMOUNT, "1");//购买商品金额
                 paramsObj.put(Params.Pay.KEY_SERVER_ID, testServerID);//服务器ID
                 paramsObj.put(Params.Pay.KEY_PRODUCT_ID, "testPayID");//购买商品的商品ID

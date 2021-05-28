@@ -24,7 +24,7 @@
 
 
         </activity>
-        <meta-data android:name="HJR_CHANNEL" android:value="\ 0103" />
+        <meta-data android:name="HJR_CHANNEL" android:value="CHANNEL_KF" />
 
     </application>
 

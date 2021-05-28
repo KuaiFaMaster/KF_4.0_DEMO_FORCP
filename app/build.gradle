@@ -15,10 +15,8 @@ android {
         versionName "1.0"
         multiDexEnabled true
     }
+
     buildTypes {
-        debug {
-            shrinkResources false
-        }
         release {
             shrinkResources false
 //            multiDexEnabled true
@@ -26,25 +24,25 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    splits{
-        abi{
-            enable true
-            reset()
-            include 'armeabi', 'armeabi-v7a'
-            universalApk true
-        }
-    }
+//    splits{
+//        abi{
+//            enable true
+//            reset()
+//            include 'armeabi', 'armeabi-v7a','arm'
+//            universalApk true
+//        }
+//    }
 }
 
 
 
 dependencies {
+    implementation fileTree(dir: "libs",includes: ["*.jar","*.aar"])
 //    implementation 'com.kf.framework:kfsdk:latest.integration@aar'
 //    implementation 'com.kf.framework:kf-utils:latest.integration@aar'
 //    implementation 'com.kf.framework:volleyplus:latest.integration@aar'
 //    implementation 'net.gameworks.gameplatform:kuaifa-sdk-login-pay-KFZS:latest.integration@aar'
-    implementation(name: 'kfsdk-1.6.8', ext: 'aar')
-    implementation(name: 'kf-utils-1.4.6', ext: 'aar')
-    implementation(name: 'volleyplus-1.4.6', ext: 'aar')
-    implementation(name: 'kuaifa-sdk-login-pay-KFZS-1.5.7', ext: 'aar')
+//    implementation(name: 'kfsdk-1.6.8', ext: 'aar')
+//    implementation(name: 'kf-utils-1.4.6', ext: 'aar')
+//    implementation(name: 'volleyplus-1.4.6', ext: 'aar')
 }
