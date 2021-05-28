@@ -110,16 +110,10 @@ public void onConfigurationChanged(Configuration config) {
 ##AndroidManifest.xml
 添加meta-data 文件
    
-
-
         <meta-data
             android:name="HJR_CHANNEL"
             android:value="\ 0103" />
- 		<meta-data
-      		android:name="KF_GAMEKEY"
-       		android:value="xxxxxxx" />
-注：KF_GAMEKEY 的值 需要向快发官方申请参数 
-
+ 		
 ## 配置参数
 
 1. 从快发提供的demo中拷贝assets目录下的developer.properties到你的游戏工程中assets目录或者在assets目录新建developer.properties文件并拷贝如下示例文件的内容到新建的文件中
@@ -138,7 +132,7 @@ HJR_GAMEKEY = c39697dd79df766cbf0834e1471cc1ae
 
 debugMode = 0  //#日志开关 0:打开日志 1:关闭日志
 
-channel = KF
+channel = matrix
 
 PluginUser= UserKF
 
@@ -148,7 +142,7 @@ PluginStatistic= StatisticKF****
 
 screen_oriention = 1 //0:横屏 1:竖屏
 
-PluginIsKF=0  //0 开启快发官方SDK  1 关闭快发官方SDK   测试支付时 可以设置为1 
+PluginIsKF=1 
 
 
 ## Activity生命周期函数
@@ -265,6 +259,8 @@ KFSDKUser.getInstance().setListener(new KFSDKListener() {
 |UserWrapper.ACTION_RET_CHANGE_ACCOUNT_FAIL|切换帐户失败|
 |UserWrapper.ACTION_RET_EXIT_SUCCESS|退出成功|
 |UserWrapper.ACTION_RET_EXIT_FAIL|退出失败|
+|UserWrapper.ACTION_RET_AUTH_REALNAME_SUCCESS|获取实名信息成功|
+|UserWrapper.ACTION_RET_AUTH_REALNAME_FAIL|获取实名信息失败|
 
 
 ## 支付模块接入
