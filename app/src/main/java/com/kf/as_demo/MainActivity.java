@@ -294,7 +294,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 paramsObj.put(Params.Pay.KEY_PRODUCT_ID, "testPayID");//购买商品的商品ID
                 paramsObj.put(Params.Pay.KEY_PRODUCT_NUM, "1");//购买商品的数量
                 paramsObj.put(Params.Pay.KEY_GAMEEXTEND, "");//额外参数,没有传""
-                paramsObj.put(Params.Pay.KEY_NOTIFY_URL, "");//应用方提供的支付结果通知uri,没有先传任意测试字符串
                 paramsObj.put(Params.Pay.KEY_CONIN_NAME, "金币");
                 paramsObj.put(Params.Pay.KEY_RATE, "10");
                 paramsObj.put(Params.Pay.KEY_ROLE_ID, testRoleID);
